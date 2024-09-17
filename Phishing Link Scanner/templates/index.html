@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Link Scanner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffcbed  ;
+            color: #333;
+        }
+        .header, .footer {
+            background-color: #70094c  ;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color:white;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #fa80d0 ;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #fa80e5;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #e9ecef;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .safe {
+            color: #28a745;
+        }
+        .phishing {
+            color: #dc3545;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #fa80d0;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Phishing Link Scanner</h1>
+    </div>
+    
+    <div class="container">
+        <form method="POST" action="/">
+            <label for="link">Enter URL to check:</label>
+            <input type="text" id="link" name="link" required placeholder="Enter a URL">
+            <button type="submit">Check Link</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h3>Scan Result: 
+                <span class="{{ 'safe' if result == 'Safe' else 'phishing' }}">
+                    {{ result }}
+                </span>
+            </h3>
+        </div>
+
+        <table>
+            <tr>
+                <th>Check</th>
+                <th>Result</th>
+            </tr>
+            {% for check, outcome in checks.items() %}
+            <tr>
+                <td>{{ check }}</td>
+                <td>{{ outcome }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Phishing Link Scanner. All rights reserved.</p>
+    </div>
+</body>
+</html>
