@@ -1,0 +1,21 @@
+
+body {
+    background-color: #f8f9fa; /* Light grey background for better contrast */
+}
+
+.container {
+    max-width: 600px; /* Center the form and limit its width */
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+    padding: 20px;
+    background-color: #ffffff; /* White background for form */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedback {
+    border: 1px solid #007bff; /* Border color for feedback box */
+}
+
+.result {
+    margin-top: 20px;
+}
