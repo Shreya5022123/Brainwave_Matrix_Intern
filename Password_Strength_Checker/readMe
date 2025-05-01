@@ -1,6 +1,6 @@
- Password Strength Checker
+Password Strength Checker
 
-#Overview
+Overview
 The Password Strength Checker is a web application built using Flask that assesses the strength of passwords entered by users. It analyzes factors such as length, complexity, and uniqueness to provide feedback on password strength. Users receive detailed information about the criteria their passwords meet or fail to meet, helping them improve their password security.
 
 Features
