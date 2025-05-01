@@ -16,5 +16,4 @@ The Phishing Link Scanner is a web application developed using Flask that helps 
 
 - Python 3.x
 - Flask
-- Basic knowledge of HTML and CSS
 
